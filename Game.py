@@ -12,7 +12,7 @@ Game = Running
 Mark = 'X'
 
 
-def DrawBoard():
+def Draw():
     print(" %c | %c | %c " % (board[1], board[2], board[3]))
     print("___|___|___")
     print(" %c | %c | %c " % (board[4], board[5], board[6]))
@@ -56,8 +56,6 @@ def CheckWin():
     else:
         Game = Running
 
-
-print("Tic-Tac-Toe Game Designed By Sourabh Somani")
 print("Player 1 [X] --- Player 2 [O]\n")
 print()
 print()
@@ -65,26 +63,26 @@ print("Please Wait...")
 time.sleep(3)
 while (Game == Running):
     os.system('cls')
-    DrawBoard()
+    Draw()
     if (player % 2 != 0):
-        print("Player 1's chance")
+        print("Player 1's turn")
         Mark = 'X'
     else:
-        print("Player 2's chance")
+        print("Player 2's turn")
         Mark = 'O'
-    choice = int(input("Enter the position between [1-9] where you want to mark : "))
+    choice = int(input("Enter the mark from [1-9] : "))
     if (CheckPosition(choice)):
         board[choice] = Mark
         player += 1
         CheckWin()
 
 os.system('cls')
-DrawBoard()
+Draw()
 if (Game == Draw):
     print("Game Draw")
 elif (Game == Win):
     player -= 1
     if (player % 2 != 0):
-        print("Player 1 Won")
+        print("Player 1 won")
     else:
-        print("Player 2 Won")    
+        print("Player 2 won")    
